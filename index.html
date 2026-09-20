@@ -1,0 +1,1117 @@
+<title>Protocolo Milagran</title>
+<meta name="description" content="Passo a passo oficial de aplicação do Kit Milagran, com vídeo, técnica e importância de cada etapa para profissionais da beleza.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050505;
+    --bg-panel:#0c0a08;
+    --bg-elevated:#17130f;
+    --ink:#f5f1e8;
+    --ink-muted:#b6a98f;
+    --ink-faint:#7d7364;
+    --gold:#c99a3d;
+    --gold-light:#e8c46a;
+    --gold-deep:#8a6a2f;
+    --line:rgba(201,154,61,.22);
+    --line-strong:rgba(201,154,61,.5);
+    --success:#7fbf7f;
+    --serif:"Playfair Display","Cormorant Garamond",Georgia,serif;
+    --script:"Cormorant Garamond",Georgia,serif;
+    --sans:"Manrope","Segoe UI",sans-serif;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    padding-inline: clamp(18px, 5vw, 64px);
+    padding-block: clamp(28px, 5vw, 56px) 40px;
+  }
+
+  a{color:inherit;}
+
+  .wrap{max-width:1180px;margin:0 auto;}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;
+    padding-bottom:clamp(28px,6vw,52px);
+    border-bottom:1px solid var(--line);
+    margin-bottom:clamp(32px,6vw,56px);
+    flex-wrap:wrap;
+  }
+  .wordmark{
+    font-family:var(--serif);
+    font-size:1.05rem;
+    letter-spacing:.14em;
+    font-weight:600;
+  }
+  .wordmark span{color:var(--gold-light);}
+  .topbar-tag{
+    font-size:.7rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--ink-muted);
+    border:1px solid var(--line-strong);
+    padding:7px 14px;
+    border-radius:2px;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    display:grid;
+    gap:20px;
+    max-width:800px;
+    margin-bottom:clamp(40px,7vw,64px);
+  }
+  .eyebrow{
+    font-size:.72rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;align-items:center;gap:10px;
+    margin:0;
+  }
+  .eyebrow::before{
+    content:"";
+    width:28px;height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(2rem, 4.4vw, 3.1rem);
+    line-height:1.12;
+    margin:0;
+    text-wrap:balance;
+  }
+  h1 em{
+    font-family:var(--script);
+    font-style:italic;
+    color:var(--gold-light);
+    font-weight:500;
+  }
+  .lede{
+    font-size:clamp(1rem,1.6vw,1.1rem);
+    line-height:1.65;
+    color:var(--ink-muted);
+    max-width:60ch;
+    margin:0;
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:6px;
+  }
+  .meta-chip{
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink);
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    padding:9px 14px;
+    border-radius:2px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .meta-chip svg{width:13px;height:13px;flex:none;}
+
+  /* ---------- products intro ---------- */
+  .products{
+    margin-bottom:clamp(48px,8vw,80px);
+  }
+  .products-head{
+    max-width:700px;
+    margin-bottom:clamp(24px,4vw,36px);
+  }
+  .products-head .eyebrow{margin-bottom:14px;}
+  .products-head h2{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(1.6rem,3.2vw,2.3rem);
+    line-height:1.2;
+    margin:0 0 12px;
+    text-wrap:balance;
+  }
+  .products-layout{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:clamp(20px,3vw,40px);
+    align-items:start;
+  }
+  @media (max-width:860px){
+    .products-layout{grid-template-columns:1fr;}
+  }
+  .intro-video .video-frame{margin-bottom:0;}
+  .intro-video-caption{
+    margin-top:12px;
+    font-size:.78rem;
+    color:var(--ink-faint);
+    letter-spacing:.03em;
+  }
+  .product-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  @media (max-width:560px){.product-grid{grid-template-columns:1fr;}}
+  .product-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:18px 20px;
+  }
+  .product-num{
+    font-family:var(--serif);
+    font-size:1.4rem;
+    color:var(--gold-light);
+    display:block;
+    margin-bottom:8px;
+  }
+  .product-card h3{
+    font-family:var(--serif);
+    font-size:1rem;
+    font-weight:600;
+    margin:0 0 6px;
+    color:var(--ink);
+  }
+  .product-card p{
+    font-size:.85rem;
+    line-height:1.6;
+    color:var(--ink-muted);
+    margin:0;
+  }
+  .start-cta{
+    margin-top:22px;
+    display:flex;
+    justify-content:flex-end;
+  }
+  @media (max-width:860px){.start-cta{justify-content:stretch;}}
+  @media (max-width:860px){.start-cta .nav-btn{width:100%;justify-content:center;}}
+
+  /* ---------- protocol layout ---------- */
+  .protocol{
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:clamp(20px,3vw,40px);
+    align-items:start;
+  }
+  @media (max-width:860px){
+    .protocol{grid-template-columns:1fr;}
+  }
+
+  /* rail */
+  .rail{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    position:sticky;
+    top:20px;
+  }
+  @media (max-width:860px){
+    .rail{
+      position:static;
+      flex-direction:row;
+      overflow-x:auto;
+      gap:8px;
+      padding-bottom:6px;
+      scroll-snap-type:x mandatory;
+    }
+    .rail::-webkit-scrollbar{height:4px;}
+  }
+  .rail-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 12px;
+    border:1px solid transparent;
+    border-left:2px solid var(--line);
+    background:transparent;
+    cursor:pointer;
+    text-align:left;
+    font-family:var(--sans);
+    color:var(--ink-muted);
+    transition:background .25s ease, border-color .25s ease, color .25s ease;
+    border-radius:0 2px 2px 0;
+  }
+  @media (max-width:860px){
+    .rail-item{
+      flex:none;
+      scroll-snap-align:start;
+      border-left:none;
+      border-bottom:2px solid var(--line);
+      border-radius:2px 2px 0 0;
+      min-width:168px;
+    }
+  }
+  .rail-item:hover{background:var(--bg-panel);color:var(--ink);}
+  .rail-item.is-active{
+    border-left-color:var(--gold);
+    background:var(--bg-panel);
+    color:var(--ink);
+  }
+  @media (max-width:860px){
+    .rail-item.is-active{border-bottom-color:var(--gold);}
+  }
+  .rail-num{
+    font-family:var(--serif);
+    font-size:1rem;
+    color:var(--ink-faint);
+    flex:none;
+    width:24px;
+    transition:color .25s ease;
+  }
+  .rail-item.is-active .rail-num{color:var(--gold-light);}
+  .rail-item.is-done .rail-num{color:var(--success);}
+  .rail-text{display:flex;flex-direction:column;gap:2px;min-width:0;}
+  .rail-title{font-size:.85rem;font-weight:600;color:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .rail-sub{font-size:.68rem;letter-spacing:.04em;color:var(--ink-faint);text-transform:uppercase;white-space:nowrap;}
+
+  .rail-progress{
+    height:1px;background:var(--line);
+    margin:10px 0 16px;
+    position:relative;
+  }
+  @media (max-width:860px){.rail-progress{display:none;}}
+  .rail-progress-fill{
+    position:absolute;left:0;top:0;height:100%;
+    background:var(--gold);
+    transition:width .4s ease;
+  }
+
+  /* stage */
+  .stage{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:clamp(18px,3vw,34px);
+    position:relative;
+    overflow:hidden;
+  }
+  .stage::before{
+    content:"";
+    position:absolute;inset:0 0 auto 0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    opacity:.6;
+  }
+  .stage-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+    margin-bottom:26px;
+    flex-wrap:wrap;
+  }
+  .stage-num{
+    font-family:var(--serif);
+    font-size:clamp(2.6rem,6vw,3.8rem);
+    line-height:1;
+    color:transparent;
+    -webkit-text-stroke:1px var(--line-strong);
+    font-weight:600;
+    flex:none;
+  }
+  .stage-head-text{min-width:0;}
+  .stage-tag{
+    font-size:.72rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin:0 0 8px;
+  }
+  .stage-title{
+    font-family:var(--serif);
+    font-size:clamp(1.5rem,2.6vw,2.1rem);
+    margin:0 0 6px;
+    font-weight:600;
+  }
+  .stage-subtitle{
+    font-size:.92rem;
+    color:var(--ink-muted);
+    margin:0;
+  }
+
+  /* video */
+  .video-frame{
+    position:relative;
+    aspect-ratio:16/9;
+    border-radius:3px;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(201,154,61,.18), transparent 60%),
+      linear-gradient(160deg, var(--bg-elevated), #0a0806 75%);
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:28px;
+  }
+  .video-frame video{width:100%;height:100%;object-fit:cover;display:block;}
+  .video-watermark{
+    position:absolute;
+    font-family:var(--serif);
+    font-size:clamp(5rem,14vw,9rem);
+    color:rgba(245,241,232,.045);
+    font-weight:700;
+    line-height:1;
+    user-select:none;
+    pointer-events:none;
+  }
+  .play-btn{
+    position:relative;
+    width:58px;height:58px;
+    border-radius:50%;
+    border:1px solid var(--line-strong);
+    background:rgba(5,5,5,.5);
+    backdrop-filter:blur(2px);
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+    transition:border-color .2s ease, transform .2s ease, background .2s ease;
+    z-index:1;
+  }
+  .play-btn:hover{border-color:var(--gold);background:rgba(5,5,5,.7);transform:scale(1.05);}
+  .play-btn svg{width:16px;height:16px;fill:var(--gold-light);margin-left:3px;}
+  .video-badge{
+    position:absolute;top:12px;right:12px;
+    font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-muted);
+    background:rgba(5,5,5,.55);
+    border:1px solid var(--line);
+    padding:5px 9px;border-radius:2px;
+    z-index:1;
+  }
+  .video-caption{
+    position:absolute;bottom:0;left:0;right:0;
+    padding:14px 16px;
+    font-size:.75rem;
+    color:var(--ink-muted);
+    background:linear-gradient(0deg, rgba(5,5,5,.75), transparent);
+    display:flex;justify-content:space-between;gap:10px;
+    z-index:1;
+  }
+
+  /* content blocks */
+  .block{margin-bottom:26px;}
+  .block:last-child{margin-bottom:0;}
+  .block-heading{
+    font-size:.7rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin:0 0 14px;
+  }
+  .block-text p{
+    font-size:1rem;
+    line-height:1.75;
+    color:var(--ink);
+    margin:0 0 16px;
+    max-width:64ch;
+  }
+  .block-text p:last-child{margin-bottom:0;}
+  .block-text p strong{color:var(--gold-light);font-weight:600;}
+
+  .highlight-banner{
+    border:1px solid var(--line-strong);
+    background:linear-gradient(135deg, rgba(201,154,61,.1), transparent 70%);
+    border-radius:2px;
+    padding:18px 22px;
+    text-align:center;
+  }
+  .highlight-banner span{
+    font-family:var(--serif);
+    font-size:clamp(.95rem,1.6vw,1.15rem);
+    letter-spacing:.03em;
+    color:var(--gold-light);
+    font-weight:600;
+  }
+
+  .note-block{
+    border-left:2px solid var(--gold);
+    background:var(--bg-elevated);
+    padding:14px 18px;
+    border-radius:0 2px 2px 0;
+  }
+  .note-label{
+    display:block;
+    font-size:.68rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+    margin-bottom:6px;
+  }
+  .note-block p{margin:0;font-size:.9rem;line-height:1.65;color:var(--ink-muted);}
+
+  .caption-text{
+    font-family:var(--script);
+    font-style:italic;
+    font-size:1.05rem;
+    color:var(--ink-muted);
+    line-height:1.6;
+    max-width:56ch;
+  }
+
+  .steps-list{
+    list-style:none;
+    margin:0;padding:0;
+    display:grid;
+    gap:14px;
+  }
+  .steps-list li{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    background:var(--bg-elevated);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:14px 16px;
+  }
+  .steps-num{
+    flex:none;
+    width:30px;height:30px;
+    border:1px solid var(--line-strong);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);
+    font-size:.85rem;
+    color:var(--gold-light);
+  }
+  .steps-text{font-size:.9rem;line-height:1.6;color:var(--ink-muted);padding-top:4px;}
+  .steps-text strong{display:block;color:var(--ink);font-size:.95rem;margin-bottom:3px;font-weight:600;}
+
+  .diagram-block{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+  }
+  .diagram-chip{
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink);
+    background:var(--bg-elevated);
+    border:1px solid var(--line-strong);
+    padding:10px 16px;
+    border-radius:2px;
+  }
+  .diagram-arrow{color:var(--gold);font-size:1rem;}
+
+  .timeline-block .block-text{margin-bottom:16px;}
+  .timeline-cards{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .timeline-card{
+    flex:1 1 160px;
+    border:1px solid var(--line);
+    background:var(--bg-elevated);
+    border-radius:2px;
+    padding:16px 18px;
+  }
+  .timeline-value{
+    font-family:var(--serif);
+    font-size:1.6rem;
+    color:var(--gold-light);
+    font-weight:600;
+    display:block;
+    margin-bottom:4px;
+  }
+  .timeline-label{
+    font-size:.78rem;
+    color:var(--ink-muted);
+    letter-spacing:.02em;
+  }
+
+  .tags-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+  }
+  .tag-pill{
+    font-size:.78rem;
+    color:var(--ink-muted);
+    border:1px solid var(--line-strong);
+    padding:7px 14px;
+    border-radius:20px;
+  }
+
+  .flow-block{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+  }
+  .flow-chip{
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+    font-weight:600;
+  }
+  .flow-arrow{color:var(--ink-faint);}
+
+  /* staggered entry for blocks */
+  .stage-content > *{animation:fadeIn .5s ease both;}
+  .stage-content > *:nth-child(1){animation-delay:.02s;}
+  .stage-content > *:nth-child(2){animation-delay:.07s;}
+  .stage-content > *:nth-child(3){animation-delay:.12s;}
+  .stage-content > *:nth-child(4){animation-delay:.17s;}
+  .stage-content > *:nth-child(5){animation-delay:.22s;}
+  .stage-content > *:nth-child(6){animation-delay:.27s;}
+  .stage-content > *:nth-child(7){animation-delay:.32s;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  @media (prefers-reduced-motion:reduce){
+    .stage-content > *{animation:none;}
+    .rail-item,.nav-btn,.play-btn{transition:none;}
+  }
+
+  /* nav controls */
+  .stage-nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:30px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .step-count{
+    font-size:.75rem;color:var(--ink-faint);letter-spacing:.05em;
+    font-variant-numeric:tabular-nums;
+  }
+  .nav-btns{display:flex;gap:10px;}
+  .nav-btn{
+    font-family:var(--sans);
+    font-size:.72rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink);
+    background:transparent;
+    border:1px solid var(--line-strong);
+    padding:12px 20px;
+    border-radius:2px;
+    cursor:pointer;
+    display:flex;align-items:center;gap:8px;
+    transition:background .2s ease, border-color .2s ease, color .2s ease, opacity .2s ease;
+  }
+  .nav-btn:hover{border-color:var(--gold);color:var(--gold-light);}
+  .nav-btn:disabled{opacity:.35;cursor:default;border-color:var(--line);color:var(--ink-faint);}
+  .nav-btn.primary{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:#1a1305;
+    font-weight:700;
+  }
+  .nav-btn.primary:hover{background:var(--gold-light);border-color:var(--gold-light);color:#1a1305;}
+  .nav-btn svg{width:11px;height:11px;fill:currentColor;}
+
+  /* final screen */
+  .final-screen{
+    text-align:center;
+    padding:clamp(30px,6vw,56px) 10px clamp(10px,3vw,20px);
+  }
+  .final-wordmark{
+    font-family:var(--serif);
+    font-size:clamp(1.8rem,4vw,2.6rem);
+    letter-spacing:.1em;
+    font-weight:700;
+    margin:0 0 10px;
+  }
+  .final-wordmark span{color:var(--gold-light);}
+  .final-tagline{
+    font-family:var(--script);
+    font-style:italic;
+    font-size:1.3rem;
+    color:var(--gold-light);
+    margin:0 0 6px;
+  }
+  .final-sub{
+    font-size:.85rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-muted);
+    margin:0 0 34px;
+  }
+  .final-recap{
+    list-style:none;
+    margin:0 0 36px;
+    padding:0;
+    display:grid;
+    gap:2px;
+    max-width:360px;
+    margin-inline:auto;
+    text-align:left;
+    border-top:1px solid var(--line);
+  }
+  .final-recap li{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:12px 6px;
+    border-bottom:1px solid var(--line);
+  }
+  .final-recap button{
+    all:unset;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    width:100%;
+    cursor:pointer;
+    color:var(--ink-muted);
+  }
+  .final-recap button:hover{color:var(--ink);}
+  .final-recap button:hover .final-recap-num{color:var(--gold-light);}
+  .final-recap-num{
+    font-family:var(--serif);
+    color:var(--ink-faint);
+    font-size:1rem;
+    width:22px;
+    flex:none;
+    transition:color .2s ease;
+  }
+  .final-recap-title{font-size:.9rem;}
+
+  /* modal */
+  .modal-overlay{
+    position:fixed;inset:0;
+    background:rgba(5,5,5,.78);
+    backdrop-filter:blur(3px);
+    display:none;
+    align-items:center;justify-content:center;
+    padding:20px;
+    z-index:50;
+  }
+  .modal-overlay.is-open{display:flex;}
+  .modal-box{
+    background:var(--bg-panel);
+    border:1px solid var(--line-strong);
+    border-radius:3px;
+    max-width:420px;
+    padding:30px 28px;
+    text-align:center;
+  }
+  .modal-box svg{width:26px;height:26px;stroke:var(--gold);margin-bottom:14px;}
+  .modal-box h3{font-family:var(--serif);font-size:1.2rem;margin:0 0 10px;font-weight:600;}
+  .modal-box p{font-size:.88rem;color:var(--ink-muted);line-height:1.6;margin:0 0 20px;}
+  .modal-close{
+    font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+    border:1px solid var(--line-strong);background:transparent;color:var(--ink);
+    padding:10px 18px;border-radius:2px;cursor:pointer;
+  }
+  .modal-close:hover{border-color:var(--gold);color:var(--gold-light);}
+
+  footer{
+    margin-top:clamp(48px,7vw,72px);
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    font-size:.72rem;
+    color:var(--ink-faint);
+    letter-spacing:.03em;
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="wordmark">MILA<span>GRAN</span></div>
+    <div class="topbar-tag">Protocolo de aplicação · uso profissional</div>
+  </div>
+
+  <section class="hero">
+    <p class="eyebrow">Passo a passo oficial</p>
+    <h1>Do preparo da pele ao resultado imediato, <em>em cinco etapas.</em></h1>
+    <p class="lede">Este guia acompanha o profissional em cada etapa do protocolo Milagran: o que fazer, como executar com precisão e por que cada movimento importa para o resultado final.</p>
+    <div class="meta-row">
+      <span class="meta-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Protocolo completo · cerca de 30 min
+      </span>
+      <span class="meta-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16M4 6h16M4 18h16"/></svg>
+        5 etapas sequenciais
+      </span>
+      <span class="meta-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.4 5.8L20 9.3l-4.6 3.9 1.6 6L12 16l-5 3.2 1.6-6L4 9.3l5.6-.5z"/></svg>
+        Kit Milagran · 4 produtos
+      </span>
+    </div>
+  </section>
+
+  <section class="products">
+    <div class="products-head">
+      <p class="eyebrow">Antes de começar</p>
+      <h2>Conheça os produtos do Kit Milagran.</h2>
+      <p class="lede">Quatro produtos, usados na ordem do protocolo. Assista à apresentação antes de seguir para o passo a passo de aplicação.</p>
+    </div>
+    <div class="products-layout">
+      <div class="intro-video">
+        <div class="video-frame">
+          <span class="video-badge">Prévia</span>
+          <button class="play-btn" id="introPlayBtn" aria-label="Reproduzir vídeo de apresentação dos produtos">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="video-caption"><span>Vídeo de apresentação — Kit Milagran</span><span>PRODUTOS</span></div>
+        </div>
+        <p class="intro-video-caption">Um panorama rápido dos quatro produtos antes de iniciar a aplicação.</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <span class="product-num">01</span>
+          <h3>Sabonete Líquido Facial Milagran</h3>
+          <p>Higieniza a pele e prepara o rosto para a etapa de extração.</p>
+        </div>
+        <div class="product-card">
+          <span class="product-num">02</span>
+          <h3>Máscara Extratora Milagran</h3>
+          <p>A massa artesanal que faz a extração indolor de cravos e impurezas.</p>
+        </div>
+        <div class="product-card">
+          <span class="product-num">03</span>
+          <h3>Papel Removedor</h3>
+          <p>Aplicado sobre a máscara, potencializa a remoção das impurezas ao secar.</p>
+        </div>
+        <div class="product-card">
+          <span class="product-num">04</span>
+          <h3>Hidratante Facial Milagran</h3>
+          <p>Finaliza o procedimento devolvendo o viço natural da pele.</p>
+        </div>
+      </div>
+    </div>
+    <div class="start-cta">
+      <button class="nav-btn primary" id="startBtn">Iniciar passo a passo
+        <svg viewBox="0 0 24 24"><path d="M9 4l8 8-8 8-1.4-1.4L14.2 12 7.6 5.4z"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <div class="protocol" id="protocol">
+    <nav class="rail" id="rail"></nav>
+
+    <div class="stage">
+      <div class="stage-content" id="stageContent"></div>
+    </div>
+  </div>
+
+  <footer>
+    <span>Kit Milagran · produto de fabricação artesanal, dispensado de registro na Anvisa nos termos da Lei nº 15.154/2025.</span>
+    <span>Material de uso profissional — não substitui o manual oficial do kit.</span>
+  </footer>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+    <h3>Vídeo em produção</h3>
+    <p>A gravação demonstrativa desta etapa está sendo finalizada e será exibida diretamente aqui assim que aprovada.</p>
+    <button class="modal-close" id="modalClose">Fechar</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var steps = [
+    {
+      title: "Preparação",
+      subtitle: "Higienização da pele",
+      videoLabel: "Vídeo explicativo — Higienização da pele",
+      videoUrl: "",
+      blocks: [
+        { type: "text", items: [
+          "Antes de iniciar a aplicação da Máscara Extratora Milagran, é fundamental realizar a higienização da pele.",
+          "Utilize o Sabonete Líquido Facial Milagran para remover impurezas, oleosidade, resíduos e sujeiras presentes na superfície da pele.",
+          "Essa etapa prepara a pele para receber a máscara e contribui para que o procedimento seja realizado de maneira adequada.",
+          "Após a higienização, remova completamente os resíduos do sabonete e prepare a pele para a próxima etapa."
+        ]},
+        { type: "highlight", text: "Prepare a pele antes da aplicação" },
+        { type: "note", label: "Atenção", text: "A pele deve estar limpa antes de iniciar a preparação da Máscara Extratora." }
+      ]
+    },
+    {
+      title: "Aplicação",
+      subtitle: "Preparação da Máscara Extratora",
+      videoLabel: "Vídeo demonstrativo — Preparação da máscara",
+      videoUrl: "",
+      blocks: [
+        { type: "text", items: [
+          "A Máscara Extratora Milagran é um produto em pó e deve ser preparada no momento da aplicação.",
+          "Por não possuir conservantes, o pó deve ser misturado/agitado novamente antes de ser retirado do recipiente, garantindo que o produto esteja devidamente homogeneizado."
+        ]},
+        { type: "steps", heading: "Passo a passo", items: [
+          { title: "Agite/misture o produto", text: "Antes de retirar o pó, misture novamente o conteúdo da embalagem." },
+          { title: "Utilize o dosador", text: "O dosador possui uma marcação correspondente à quantidade de máscara necessária para uma aplicação." },
+          { title: "Retire a quantidade indicada", text: "Coloque no dosador somente a quantidade correspondente a uma aplicação." },
+          { title: "Coloque o pó em um recipiente", text: "Despeje a quantidade medida de máscara em um recipiente limpo e adequado para o preparo." },
+          { title: "Adicione a água", text: "Utilize o próprio dosador para medir a quantidade indicada de água morna ou quente e adicione ao recipiente." },
+          { title: "Misture bem", text: "Misture a máscara e a água até obter uma preparação completamente homogênea." }
+        ]},
+        { type: "note", label: "Importante", text: "A água pode estar morna ou quente durante o preparo. Após a mistura estar pronta, a temperatura da preparação será adequada para a aplicação." },
+        { type: "diagram", heading: "Do preparo à mistura", items: ["Dosador", "Pó", "Água", "Mistura homogênea"] }
+      ]
+    },
+    {
+      title: "Papel Removedor",
+      subtitle: "Preparação e aplicação sobre a pele",
+      videoLabel: "Vídeo demonstrativo — Aplicação do papel removedor",
+      videoUrl: "",
+      blocks: [
+        { type: "text", items: [
+          "O papel removedor já vem cortado de acordo com as diferentes regiões do rosto, facilitando a aplicação e a remoção da máscara."
+        ]},
+        { type: "steps", heading: "Sequência de aplicação", items: [
+          "Escolha o papel correspondente à região do rosto.",
+          "Recomenda-se iniciar pelo papel recortado para a região do nariz e testa.",
+          "Mergulhe o papel na mistura preparada.",
+          "Retire o papel da mistura.",
+          "Posicione e aplique sobre a região correspondente do rosto.",
+          "Continue o processo até completar toda a área desejada."
+        ]},
+        { type: "note", label: "Barbearias", text: "Para homens em barbearias, a aplicação também pode ser realizada em metade do rosto, conforme o procedimento realizado pelo profissional." },
+        { type: "highlight", text: "Aplique o papel até cobrir toda a área desejada" },
+        { type: "timeline", heading: "Tempo de secagem", text: "Dependendo das características da pele, o papel pode apresentar secagem em aproximadamente 20 minutos. O tempo máximo de permanência é de 30 minutos.", items: [
+          { value: "20 min", label: "Secagem pode ocorrer" },
+          { value: "30 min", label: "Tempo máximo de permanência" }
+        ]}
+      ]
+    },
+    {
+      title: "Extração",
+      subtitle: "Remoção do papel e visualização das impurezas",
+      videoLabel: "Vídeo demonstrativo — Remoção e extração",
+      videoUrl: "",
+      blocks: [
+        { type: "text", items: [
+          "Quando o papel estiver completamente seco, chegou o momento da remoção.",
+          "Retire o papel por completo, com cuidado, observando o material que foi removido durante o processo."
+        ]},
+        { type: "tags", heading: "O que observar no papel", items: ["Comedões", "Sujeira", "Resíduos", "Pele oxidada", "Pele morta", "Outras impurezas"] },
+        { type: "text", items: [
+          "Ao retirar o papel, é possível visualizar no material removido diferentes impurezas presentes na pele, incluindo comedões, sujeira, células de pele morta e áreas de pele oxidada, que podem deixar o papel com uma aparência amarelada."
+        ]},
+        { type: "highlight", text: "Observe o papel após a remoção" },
+        { type: "caption", text: "A ideia dessa etapa é mostrar visualmente o resultado da extração e tornar perceptível aquilo que foi retirado da pele." }
+      ]
+    },
+    {
+      title: "Finalização",
+      subtitle: "Limpeza dos resíduos e hidratação",
+      videoLabel: "Vídeo demonstrativo — Finalização e hidratação",
+      videoUrl: "",
+      blocks: [
+        { type: "text", items: [
+          "Após a remoção completa do papel, faça a limpeza final da pele antes da hidratação."
+        ]},
+        { type: "steps", items: [
+          { title: "Remova os resíduos", text: "Utilize um algodão úmido para remover cuidadosamente os possíveis resíduos da máscara que permaneceram sobre a pele." },
+          { title: "Hidrate", text: "Com a pele limpa e sem resíduos aparentes da máscara, aplique o Hidratante Facial Milagran, espalhando suavemente sobre toda a região tratada." }
+        ]},
+        { type: "highlight", text: "Aplicação concluída" },
+        { type: "flow", items: ["Limpar", "Extrair", "Remover resíduos", "Hidratar"] }
+      ]
+    }
+  ];
+
+  var current = 0;
+  var rail = document.getElementById('rail');
+  var stageContent = document.getElementById('stageContent');
+  var modalOverlay = document.getElementById('modalOverlay');
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function esc(str){
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function iconPlay(){
+    return '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+  }
+  function iconChevronLeft(){
+    return '<svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8 1.4-1.4L9.8 12l6.6-6.6z"/></svg>';
+  }
+  function iconChevronRight(){
+    return '<svg viewBox="0 0 24 24"><path d="M9 4l8 8-8 8-1.4-1.4L14.2 12 7.6 5.4z"/></svg>';
+  }
+
+  function renderRail(){
+    var html = '<div class="rail-progress"><div class="rail-progress-fill" style="width:' + (current/(steps.length-1)*100) + '%"></div></div>';
+    steps.forEach(function(s, i){
+      var cls = 'rail-item';
+      if(i === current) cls += ' is-active';
+      if(i < current) cls += ' is-done';
+      html += '<button class="' + cls + '" data-index="' + i + '">' +
+        '<span class="rail-num">' + String(i+1).padStart(2,'0') + '</span>' +
+        '<span class="rail-text"><span class="rail-title">' + esc(s.title) + '</span><span class="rail-sub">Passo ' + String(i+1).padStart(2,'0') + '</span></span>' +
+        '</button>';
+    });
+    rail.innerHTML = html;
+    rail.querySelectorAll('.rail-item').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        goTo(parseInt(btn.getAttribute('data-index'), 10));
+      });
+    });
+  }
+
+  function renderBlock(b){
+    switch(b.type){
+      case 'text':
+        return '<div class="block block-text">' + b.items.map(function(p){ return '<p>' + esc(p) + '</p>'; }).join('') + '</div>';
+
+      case 'highlight':
+        return '<div class="block highlight-banner"><span>' + esc(b.text) + '</span></div>';
+
+      case 'note':
+        return '<div class="block note-block"><span class="note-label">' + esc(b.label) + '</span><p>' + esc(b.text) + '</p></div>';
+
+      case 'caption':
+        return '<div class="block caption-text">' + esc(b.text) + '</div>';
+
+      case 'steps':
+        return '<div class="block">' +
+          (b.heading ? '<p class="block-heading">' + esc(b.heading) + '</p>' : '') +
+          '<ol class="steps-list">' + b.items.map(function(it, i){
+            var num = '<span class="steps-num">' + String(i+1).padStart(2,'0') + '</span>';
+            if(typeof it === 'string'){
+              return '<li>' + num + '<span class="steps-text">' + esc(it) + '</span></li>';
+            }
+            return '<li>' + num + '<span class="steps-text"><strong>' + esc(it.title) + '</strong>' + esc(it.text) + '</span></li>';
+          }).join('') + '</ol></div>';
+
+      case 'diagram':
+        return '<div class="block">' +
+          (b.heading ? '<p class="block-heading">' + esc(b.heading) + '</p>' : '') +
+          '<div class="diagram-block">' + b.items.map(function(it, i){
+            return '<span class="diagram-chip">' + esc(it) + '</span>' + (i < b.items.length - 1 ? '<span class="diagram-arrow">&#8594;</span>' : '');
+          }).join('') + '</div></div>';
+
+      case 'timeline':
+        return '<div class="block timeline-block">' +
+          (b.heading ? '<p class="block-heading">' + esc(b.heading) + '</p>' : '') +
+          (b.text ? '<div class="block-text"><p>' + esc(b.text) + '</p></div>' : '') +
+          '<div class="timeline-cards">' + b.items.map(function(it){
+            return '<div class="timeline-card"><span class="timeline-value">' + esc(it.value) + '</span><span class="timeline-label">' + esc(it.label) + '</span></div>';
+          }).join('') + '</div></div>';
+
+      case 'tags':
+        return '<div class="block">' +
+          (b.heading ? '<p class="block-heading">' + esc(b.heading) + '</p>' : '') +
+          '<div class="tags-wrap">' + b.items.map(function(t){ return '<span class="tag-pill">' + esc(t) + '</span>'; }).join('') + '</div></div>';
+
+      case 'flow':
+        return '<div class="block flow-block">' + b.items.map(function(it, i){
+          return '<span class="flow-chip">' + esc(it) + '</span>' + (i < b.items.length - 1 ? '<span class="flow-arrow">&#8594;</span>' : '');
+        }).join('') + '</div>';
+
+      default:
+        return '';
+    }
+  }
+
+  function renderStage(){
+    var s = steps[current];
+
+    var videoInner = s.videoUrl
+      ? '<video controls playsinline src="' + s.videoUrl + '"></video>'
+      : '<div class="video-watermark">' + String(current+1).padStart(2,'0') + '</div>' +
+        '<span class="video-badge">Prévia</span>' +
+        '<button class="play-btn" id="playBtn" aria-label="Reproduzir vídeo do passo">' + iconPlay() + '</button>' +
+        '<div class="video-caption"><span>' + esc(s.videoLabel) + '</span><span>PASSO ' + String(current+1).padStart(2,'0') + '</span></div>';
+
+    var html =
+      '<div class="stage-head">' +
+        '<span class="stage-num">' + String(current+1).padStart(2,'0') + '</span>' +
+        '<div class="stage-head-text">' +
+          '<p class="stage-tag">Passo ' + String(current+1).padStart(2,'0') + ' de 05</p>' +
+          '<h2 class="stage-title">' + esc(s.title) + '</h2>' +
+          '<p class="stage-subtitle">' + esc(s.subtitle) + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="video-frame" id="videoFrame">' + videoInner + '</div>' +
+      s.blocks.map(renderBlock).join('') +
+      '<div class="stage-nav">' +
+        '<span class="step-count">Etapa ' + (current+1) + ' de ' + steps.length + '</span>' +
+        '<div class="nav-btns">' +
+          '<button class="nav-btn" id="prevBtn" ' + (current===0 ? 'disabled' : '') + '>' + iconChevronLeft() + ' Anterior</button>' +
+          '<button class="nav-btn primary" id="nextBtn">' + (current === steps.length-1 ? 'Concluir' : 'Próximo') + ' ' + iconChevronRight() + '</button>' +
+        '</div>' +
+      '</div>';
+
+    stageContent.innerHTML = html;
+
+    var playBtn = document.getElementById('playBtn');
+    if(playBtn){
+      playBtn.addEventListener('click', function(){ modalOverlay.classList.add('is-open'); });
+    }
+    document.getElementById('prevBtn').addEventListener('click', function(){ goTo(current-1); });
+    document.getElementById('nextBtn').addEventListener('click', function(){
+      if(current === steps.length-1){ showFinal(); }
+      else { goTo(current+1); }
+    });
+  }
+
+  function showFinal(){
+    var recap = steps.map(function(s, i){
+      return '<li><button data-index="' + i + '"><span class="final-recap-num">' + String(i+1).padStart(2,'0') + '</span><span class="final-recap-title">' + esc(s.title) + '</span></button></li>';
+    }).join('');
+
+    stageContent.innerHTML =
+      '<div class="final-screen">' +
+        '<p class="final-wordmark">MILA<span>GRAN</span></p>' +
+        '<p class="final-tagline">Limpeza de Pele Instantânea</p>' +
+        '<p class="final-sub">5 etapas para uma aplicação completa</p>' +
+        '<ul class="final-recap">' + recap + '</ul>' +
+        '<button class="nav-btn primary" id="restartBtn">Rever o protocolo</button>' +
+      '</div>';
+
+    stageContent.querySelectorAll('.final-recap button').forEach(function(btn){
+      btn.addEventListener('click', function(){ goTo(parseInt(btn.getAttribute('data-index'), 10)); });
+    });
+    document.getElementById('restartBtn').addEventListener('click', function(){ goTo(0); });
+  }
+
+  function goTo(i){
+    if(i < 0 || i > steps.length-1) return;
+    current = i;
+    renderRail();
+    renderStage();
+  }
+
+  var introPlayBtn = document.getElementById('introPlayBtn');
+  if(introPlayBtn){
+    introPlayBtn.addEventListener('click', function(){ modalOverlay.classList.add('is-open'); });
+  }
+  var startBtn = document.getElementById('startBtn');
+  if(startBtn){
+    startBtn.addEventListener('click', function(){
+      document.getElementById('protocol').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    });
+  }
+
+  document.getElementById('modalClose').addEventListener('click', function(){
+    modalOverlay.classList.remove('is-open');
+  });
+  modalOverlay.addEventListener('click', function(e){
+    if(e.target === modalOverlay) modalOverlay.classList.remove('is-open');
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(modalOverlay.classList.contains('is-open')) return;
+    if(e.key === 'ArrowRight') goTo(Math.min(current+1, steps.length-1));
+    if(e.key === 'ArrowLeft') goTo(Math.max(current-1, 0));
+  });
+
+  renderRail();
+  renderStage();
+})();
+</script>
