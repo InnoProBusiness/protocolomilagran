@@ -399,6 +399,51 @@
     z-index:1;
   }
 
+  /* details toggle */
+  .details-toggle{
+    all:unset;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    cursor:pointer;
+    padding:14px 4px;
+    margin-bottom:6px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    color:var(--gold-light);
+  }
+  .details-toggle span{
+    font-size:.72rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  .details-toggle svg{
+    width:13px;height:13px;
+    stroke:var(--gold-light);
+    fill:none;
+    stroke-width:2;
+    flex:none;
+    transition:transform .25s ease;
+  }
+  .details-toggle.is-collapsed svg{transform:rotate(-90deg);}
+  .details-toggle:hover{color:var(--gold);}
+  .details-toggle:hover svg{stroke:var(--gold);}
+  .details-toggle:focus-visible{outline:1px solid var(--gold); outline-offset:2px;}
+
+  .stage-details-wrap{
+    display:grid;
+    grid-template-rows:1fr;
+    transition:grid-template-rows .35s ease;
+  }
+  .stage-details-wrap.is-collapsed{grid-template-rows:0fr;}
+  .stage-details-inner{overflow:hidden;min-height:0;}
+  .stage-details-inner > .block:first-child{margin-top:22px;}
+  @media (prefers-reduced-motion:reduce){
+    .stage-details-wrap{transition:none;}
+  }
+
   /* content blocks */
   .block{margin-bottom:26px;}
   .block:last-child{margin-bottom:0;}
@@ -853,10 +898,10 @@
           { title: "Utilize o dosador", text: "O dosador possui uma marcação correspondente à quantidade de máscara necessária para uma aplicação." },
           { title: "Retire a quantidade indicada", text: "Coloque no dosador somente a quantidade correspondente a uma aplicação." },
           { title: "Coloque o pó em um recipiente", text: "Despeje a quantidade medida de máscara em um recipiente limpo e adequado para o preparo." },
-          { title: "Adicione a água", text: "Utilize o próprio dosador para medir a quantidade indicada de água morna ou quente e adicione ao recipiente." },
+          { title: "Adicione a água", text: "Utilize o próprio dosador para medir a quantidade indicada de água bem quente, em fervura, e adicione ao recipiente." },
           { title: "Misture bem", text: "Misture a máscara e a água até obter uma preparação completamente homogênea." }
         ]},
-        { type: "note", label: "Importante", text: "A água pode estar morna ou quente durante o preparo. Após a mistura estar pronta, a temperatura da preparação será adequada para a aplicação." },
+        { type: "note", label: "Importante", text: "A água deve estar bem quente, em fervura — isso garante tempo suficiente para realizar a mistura com calma. Quando a preparação estiver pronta para a aplicação, a temperatura já estará em nível ambiente." },
         { type: "diagram", heading: "Do preparo à mistura", items: ["Dosador", "Pó", "Água", "Mistura homogênea"] }
       ]
     },
@@ -942,6 +987,9 @@
   }
   function iconChevronRight(){
     return '<svg viewBox="0 0 24 24"><path d="M9 4l8 8-8 8-1.4-1.4L14.2 12 7.6 5.4z"/></svg>';
+  }
+  function iconChevronDown(){
+    return '<svg viewBox="0 0 24 24"><path d="M5 8l7 8 7-8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   }
 
   function renderRail(){
@@ -1038,7 +1086,12 @@
         '</div>' +
       '</div>' +
       '<div class="video-frame" id="videoFrame">' + videoInner + '</div>' +
-      s.blocks.map(renderBlock).join('') +
+      '<button class="details-toggle" id="detailsToggle" aria-expanded="true">' +
+        '<span>Ocultar detalhes da etapa</span>' + iconChevronDown() +
+      '</button>' +
+      '<div class="stage-details-wrap" id="detailsWrap">' +
+        '<div class="stage-details-inner">' + s.blocks.map(renderBlock).join('') + '</div>' +
+      '</div>' +
       '<div class="stage-nav">' +
         '<span class="step-count">Etapa ' + (current+1) + ' de ' + steps.length + '</span>' +
         '<div class="nav-btns">' +
@@ -1053,6 +1106,16 @@
     if(playBtn){
       playBtn.addEventListener('click', function(){ modalOverlay.classList.add('is-open'); });
     }
+
+    var detailsToggle = document.getElementById('detailsToggle');
+    var detailsWrap = document.getElementById('detailsWrap');
+    detailsToggle.addEventListener('click', function(){
+      var collapsed = detailsWrap.classList.toggle('is-collapsed');
+      detailsToggle.classList.toggle('is-collapsed', collapsed);
+      detailsToggle.setAttribute('aria-expanded', String(!collapsed));
+      detailsToggle.querySelector('span').textContent = collapsed ? 'Ver detalhes da etapa' : 'Ocultar detalhes da etapa';
+    });
+
     document.getElementById('prevBtn').addEventListener('click', function(){ goTo(current-1); });
     document.getElementById('nextBtn').addEventListener('click', function(){
       if(current === steps.length-1){ showFinal(); }
