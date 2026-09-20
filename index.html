@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>Protocolo Milagran</title>
 <meta name="description" content="Passo a passo oficial de aplicação do Kit Milagran, com vídeo, técnica e importância de cada etapa para profissionais da beleza.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -803,11 +804,7 @@
     <div class="products-layout">
       <div class="intro-video">
         <div class="video-frame">
-          <span class="video-badge">Prévia</span>
-          <button class="play-btn" id="introPlayBtn" aria-label="Reproduzir vídeo de apresentação dos produtos">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-          <div class="video-caption"><span>Vídeo de apresentação — Kit Milagran</span><span>PRODUTOS</span></div>
+          <video controls playsinline preload="metadata" src="videos/00-produtos.mp4"></video>
         </div>
         <p class="intro-video-caption">Um panorama rápido dos quatro produtos antes de iniciar a aplicação.</p>
       </div>
@@ -1150,10 +1147,6 @@
     renderStage();
   }
 
-  var introPlayBtn = document.getElementById('introPlayBtn');
-  if(introPlayBtn){
-    introPlayBtn.addEventListener('click', function(){ modalOverlay.classList.add('is-open'); });
-  }
   var startBtn = document.getElementById('startBtn');
   if(startBtn){
     startBtn.addEventListener('click', function(){
