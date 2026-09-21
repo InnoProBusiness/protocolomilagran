@@ -805,7 +805,7 @@
     <div class="products-layout">
       <div class="intro-video">
         <div class="video-frame">
-          <video controls playsinline preload="metadata" src="videos/00-produtos.mp4"></video>
+          <video controls playsinline preload="metadata" poster="videos/00-produtos-capa.jpg" src="videos/00-produtos.mp4"></video>
         </div>
         <p class="intro-video-caption">Um panorama rápido dos quatro produtos antes de iniciar a aplicação.</p>
       </div>
@@ -870,6 +870,7 @@
       subtitle: "Higienização da pele",
       videoLabel: "Vídeo explicativo — Higienização da pele",
       videoUrl: "",
+      poster: "videos/01-preparacao-capa.jpg",
       blocks: [
         { type: "text", items: [
           "Antes de iniciar a aplicação da Máscara Extratora Milagran, é fundamental realizar a higienização da pele.",
@@ -886,6 +887,7 @@
       subtitle: "Preparação da Máscara Extratora",
       videoLabel: "Vídeo demonstrativo — Preparação da máscara",
       videoUrl: "",
+      poster: "videos/02-aplicacao-capa.jpg",
       blocks: [
         { type: "text", items: [
           "A Máscara Extratora Milagran é um produto em pó e deve ser preparada no momento da aplicação.",
@@ -908,6 +910,7 @@
       subtitle: "Preparação e aplicação sobre a pele",
       videoLabel: "Vídeo demonstrativo — Aplicação do papel removedor",
       videoUrl: "",
+      poster: "videos/03-papel-removedor-capa.jpg",
       blocks: [
         { type: "text", items: [
           "O papel removedor já vem cortado de acordo com as diferentes regiões do rosto, facilitando a aplicação e a remoção da máscara."
@@ -933,6 +936,7 @@
       subtitle: "Remoção do papel e visualização das impurezas",
       videoLabel: "Vídeo demonstrativo — Remoção e extração",
       videoUrl: "",
+      poster: "videos/04-extracao-capa.jpg",
       blocks: [
         { type: "text", items: [
           "Quando o papel estiver completamente seco, chegou o momento da remoção.",
@@ -951,6 +955,7 @@
       subtitle: "Limpeza dos resíduos e hidratação",
       videoLabel: "Vídeo demonstrativo — Finalização e hidratação",
       videoUrl: "",
+      poster: "videos/05-finalizacao-capa.jpg",
       blocks: [
         { type: "text", items: [
           "Após a remoção completa do papel, faça a limpeza final da pele antes da hidratação."
@@ -1068,7 +1073,7 @@
     var s = steps[current];
 
     var videoInner = s.videoUrl
-      ? '<video controls playsinline src="' + s.videoUrl + '"></video>'
+      ? '<video controls playsinline preload="metadata"' + (s.poster ? ' poster="' + s.poster + '"' : '') + ' src="' + s.videoUrl + '"></video>'
       : '<div class="video-watermark">' + String(current+1).padStart(2,'0') + '</div>' +
         '<span class="video-badge">Prévia</span>' +
         '<button class="play-btn" id="playBtn" aria-label="Reproduzir vídeo do passo">' + iconPlay() + '</button>' +
